@@ -32,9 +32,9 @@ td {
     height: 100%;
     margin: 0px 0px 50px 0px;
     padding: 10px 10px 10px 10px;
-    text-align: left;
-    box-shadow: 10px 20px 60px 0px #e3d6c7;
-    -webkit-box-shadow: 10px 20px 60px 0px #e3d6c7;
+    text-align: right;
+    /*box-shadow: 10px 20px 60px 0px #e3d6c7;
+    -webkit-box-shadow: 10px 20px 60px 0px #e3d6c7;*/
 }
 
 .number {

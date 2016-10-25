@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ma Jiang Game Management Tool</title>
     <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -14,17 +15,17 @@
 </head>
 
 <body>
-    <div id="container">
+    <div id="container" class="container-fluid">
         <h2>Ma Jiang Game Management Tool</h2>
-        <div id="data">
-            <table>
+        <div id="data" class="row">
+            <table class="table">
                 <tr id="header">
-                    <th>Index</th>
-                    <th>kan</th>
-                    <th>jun</th>
-                    <th>hao</th>
-                    <th>kang</th>
-                    <th>Action</th>
+                    <th class="col-xs-2">Index</th>
+                    <th class="col-xs-2">Kan</th>
+                    <th class="col-xs-2">Jun</th>
+                    <th class="col-xs-2">Hao</th>
+                    <th class="col-xs-2">Kang</th>
+                    <th class="col-xs-2">Action</th>
                 </tr>
                 <tr>
                     <td></td>
@@ -41,7 +42,7 @@
                         <input type="text" v-model="newRound_4" size="5" maxlength="5" />
                     </td>
                     <td>
-                        <button class="btn btn-default" v-on:click="addNewRound()">Add</button>
+                        <button class="btn btn-primary btn-block" v-on:click="addNewRound()">Add</button>
                     </td>
                 </tr>
                 <tr v-if="rounds.length > 0" v-for="(round, index) in rounds">
@@ -51,19 +52,19 @@
                     <td>{{round[2]}}</td>
                     <td>{{round[3]}}</td>
                     <td>
-                        <button class="btn btn-default" v-on:click="removeRound(index)">Delete</button>
+                        <button class="btn btn-primary btn-block" v-on:click="removeRound(index)">Delete</button>
                     </td>
                 </tr>
-                <tr id="allMerge">
-                    <td>Sum</td>
+                <tr id="allMerge" class="info">
+                    <td><strong>Sum</strong></td>
                     <td>{{sumData[0]}}</td>
                     <td>{{sumData[1]}}</td>
                     <td>{{sumData[2]}}</td>
                     <td>{{sumData[3]}}</td>
                     <td></td>
                 </tr>
-                <tr id="allPercentage">
-                    <td>Percentage</td>
+                <tr id="allPercentage" class="info">
+                    <td><strong>Percent</strong></td>
                     <td>{{sumPercentage[0]}}%</td>
                     <td>{{sumPercentage[1]}}%</td>
                     <td>{{sumPercentage[2]}}%</td>

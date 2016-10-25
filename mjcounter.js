@@ -6,9 +6,15 @@ $().ready(function() {
             newRound_2: '',
             newRound_3: '',
             newRound_4: '',
-            rounds: []
-                //     [0, 0, 0, 0] // initial value
-                // ]
+            rounds: [
+                [10, -10, 0, 0],
+                [20, 20, 20, -60],
+                [-9, 0, 9, 0],
+                [-15, 0, 0, 15],
+                [22, 22, -66, 22],
+                [17, -17, 0, 0],
+                [10, -30, 10, 10]
+            ]
         },
         computed: {
             newRound: function() {
