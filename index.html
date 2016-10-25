@@ -2,11 +2,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ma Jiang Game Management Tool</title>
     <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
     <script type='text/javascript' language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
     <script type='text/javascript' language='javascript' src="mjcounter.js"></script>
     <link rel="stylesheet" href="mjcounter.css">
@@ -15,63 +14,110 @@
 </head>
 
 <body>
-    <div id="container" class="container-fluid">
-        <h2>Ma Jiang Game Management Tool</h2>
-        <div id="data" class="row">
-            <table class="table">
-                <tr id="header">
-                    <th class="col-xs-2">Index</th>
-                    <th class="col-xs-2">Kan</th>
-                    <th class="col-xs-2">Jun</th>
-                    <th class="col-xs-2">Hao</th>
-                    <th class="col-xs-2">Kang</th>
-                    <th class="col-xs-2">Action</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="text" v-model="newRound_1" size="5" maxlength="5" />
-                    </td>
-                    <td>
-                        <input type="text" v-model="newRound_2" size="5" maxlength="5" />
-                    </td>
-                    <td>
-                        <input type="text" v-model="newRound_3" size="5" maxlength="5" />
-                    </td>
-                    <td>
-                        <input type="text" v-model="newRound_4" size="5" maxlength="5" />
-                    </td>
-                    <td>
-                        <button class="btn btn-primary btn-block" v-on:click="addNewRound()">Add</button>
-                    </td>
-                </tr>
-                <tr v-if="rounds.length > 0" v-for="(round, index) in rounds">
-                    <td>{{ index+1 }}</td>
-                    <td>{{round[0]}}</td>
-                    <td>{{round[1]}}</td>
-                    <td>{{round[2]}}</td>
-                    <td>{{round[3]}}</td>
-                    <td>
-                        <button class="btn btn-primary btn-block" v-on:click="removeRound(index)">Delete</button>
-                    </td>
-                </tr>
-                <tr id="allMerge" class="info">
-                    <td><strong>Sum</strong></td>
-                    <td>{{sumData[0]}}</td>
-                    <td>{{sumData[1]}}</td>
-                    <td>{{sumData[2]}}</td>
-                    <td>{{sumData[3]}}</td>
-                    <td></td>
-                </tr>
-                <tr id="allPercentage" class="info">
-                    <td><strong>Percent</strong></td>
-                    <td>{{sumPercentage[0]}}%</td>
-                    <td>{{sumPercentage[1]}}%</td>
-                    <td>{{sumPercentage[2]}}%</td>
-                    <td>{{sumPercentage[3]}}%</td>
-                    <td></td>
-                </tr>
-            </table>
+    <div id="container">
+        <h2 class="ui center aligned icon header">
+            <i class="circular users icon"></i>
+            Ma Jiang Game Management Tool
+            </h2>
+        <div id="data">
+            <div id="header" class="ui sixteen column grid">
+                <div class="two wide column">Index</div>
+                <div class="three wide column">
+                    <label>Kan</label>
+                </div>
+                <div class="three wide column">
+                    <label>Jun</label>
+                </div>
+                <div class="three wide column">
+                    <label>Hao</label>
+                </div>
+                <div class="three wide column">
+                    <label>Kang</label>
+                </div>
+                <div class="two wide column">Action</div>
+            </div>
+            <div class="ui sixteen column grid">
+                <div class="center aligned two wide column">
+                    <i class="pointing right icon"></i>
+                </div>
+                <div class="twelve wide column">
+                    <div class="ui form">
+                        <div class="four fields">
+                            <div class="field">
+                                <input type="number" placeholder="Number" v-model="newRound_1" size="5" maxlength="5">
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Number" v-model="newRound_2" size="5" maxlength="5">
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Number" v-model="newRound_3" size="5" maxlength="5">
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Number" v-model="newRound_4" size="5" maxlength="5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two wide column">
+                    <button class="fluid ui icon button" v-on:click="addNewRound()">
+                        <i class="plus icon"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="ui sixteen column grid" v-if="rounds.length > 0" v-for="(round, index) in rounds">
+                <div class="middle aligned center aligned two wide column">{{ index+1 }}</div>
+                <div class="middle aligned center aligned three wide column">
+                    {{round[0]}}
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{round[1]}}
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{round[2]}}
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{round[3]}}
+                </div>
+                <div class="two wide column">
+                    <button class="fluid ui icon button" v-on:click="removeRound(index)">
+                        <i class="remove icon"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="ui sixteen column grid" id="allMerge">
+                <div class="middle aligned center aligned two wide column"><strong>Sum</strong></div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumData[0]}}
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumData[1]}}
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumData[2]}}
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumData[3]}}
+                </div>
+                <div class="two wide column">
+                </div>
+            </div>
+            <div class="ui sixteen column grid" id="allPercentage">
+                <div class="middle aligned center aligned two wide column"><strong>Percent</strong></div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumPercentage[0]}}%
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumPercentage[1]}}%
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumPercentage[2]}}%
+                </div>
+                <div class="middle aligned center aligned three wide column">
+                    {{sumPercentage[3]}}%
+                </div>
+                <div class="two wide column">
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer">
