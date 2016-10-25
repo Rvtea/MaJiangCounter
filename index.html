@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Jiang Game Management Tool</title>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type='text/javascript' language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script type='text/javascript' language='javascript' src="mjcounter.js"></script>
+    <link rel="stylesheet" href="mjcounter.css">
+    <title> JavaScript Timer on Webpage
+    </title>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Ma Jiang Game Management Tool</h2>
+        <h2>Just test</h2>
+        <div id="data">
+            <table>
+                <tr id="header">
+                    <th>Index</th>
+                    <th>kan</th>
+                    <th>jun</th>
+                    <th>hao</th>
+                    <th>kang</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="text" v-model="newRound_1" size="5" maxlength="5" />
+                    </td>
+                    <td>
+                        <input type="text" v-model="newRound_2" size="5" maxlength="5" />
+                    </td>
+                    <td>
+                        <input type="text" v-model="newRound_3" size="5" maxlength="5" />
+                    </td>
+                    <td>
+                        <input type="text" v-model="newRound_4" size="5" maxlength="5" />
+                    </td>
+                    <td>
+                        <button class="btn btn-default" v-on:click="addNewRound()">Add</button>
+                    </td>
+                </tr>
+                <tr v-if="rounds.length > 0" v-for="(round, index) in rounds">
+                    <td>{{ index+1 }}</td>
+                    <td>{{round[0]}}</td>
+                    <td>{{round[1]}}</td>
+                    <td>{{round[2]}}</td>
+                    <td>{{round[3]}}</td>
+                    <td>
+                        <button class="btn btn-default" v-on:click="removeRound(index)">Delete</button>
+                    </td>
+                </tr>
+                <tr id="allMerge">
+                    <td>Sum</td>
+                    <td>{{sumData[0]}}</td>
+                    <td>{{sumData[1]}}</td>
+                    <td>{{sumData[2]}}</td>
+                    <td>{{sumData[3]}}</td>
+                    <td></td>
+                </tr>
+                <tr id="allPercentage">
+                    <td>Percentage</td>
+                    <td>{{sumPercentage[0]}}%</td>
+                    <td>{{sumPercentage[1]}}%</td>
+                    <td>{{sumPercentage[2]}}%</td>
+                    <td>{{sumPercentage[3]}}%</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="text-center">Copyright © 2016 | Designed by <a href="https://github.com/Rvtea/MaJiangCounter" target=_new>Yuan Xiao</a>
+        </p>
+    </div>
+</body>
+
+</html>

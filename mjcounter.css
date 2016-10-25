@@ -1,0 +1,61 @@
+body {
+    max-width: 600px;
+    margin: 30px auto 50px auto;
+    background-color: #F5F5F5 !important;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-family: "AppleSDGothicNeo-Light" !important;
+    padding: 10px 0px;
+}
+
+table {
+    width: 100%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+#header {
+    text-align: center
+}
+
+td {
+    /*border: 2px dashed #1F1F1F;*/
+    padding: 5px 3px 5px 3px;
+}
+
+#container {
+    max-width: 600px;
+    height: auto !important;
+    height: 100%;
+    margin: 0px 0px 50px 0px;
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    box-shadow: 10px 20px 60px 0px #e3d6c7;
+    -webkit-box-shadow: 10px 20px 60px 0px #e3d6c7;
+}
+
+.number {
+    font-size: 40px;
+}
+
+.info-left {
+    text-align: left;
+}
+
+.exchange-calculation {
+    text-align: center;
+    font-size: 42px;
+    font-family: "AppleSDGothicNeo-Light" !important;
+}
+
+.info-right {
+    text-align: right;
+}
+
+.info-left,
+.info-right {
+    font-size: 22px;
+}
