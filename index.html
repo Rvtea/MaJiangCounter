@@ -1,16 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Ma Jiang Game Management Tool</title>
-    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
     <script type='text/javascript' language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
     <script type='text/javascript' language='javascript' src="mjcounter.js"></script>
     <link rel="stylesheet" href="mjcounter.css">
-    <title> JavaScript Timer on Webpage
-    </title>
 </head>
 
 <body>
@@ -24,15 +23,19 @@
                 <div class="two wide column">Index</div>
                 <div class="three wide column">
                     <label>Kan</label>
+                    <div class="floating ui red label">{{winRoundInfo[0]}}</div>
                 </div>
                 <div class="three wide column">
                     <label>Jun</label>
+                    <div class="floating ui teal label">{{winRoundInfo[1]}}</div>
                 </div>
                 <div class="three wide column">
                     <label>Hao</label>
+                    <div class="floating ui blue label">{{winRoundInfo[2]}}</div>
                 </div>
                 <div class="three wide column">
                     <label>Kang</label>
+                    <div class="floating ui green label">{{winRoundInfo[3]}}</div>
                 </div>
                 <div class="two wide column">Action</div>
             </div>
@@ -42,18 +45,22 @@
                 </div>
                 <div class="twelve wide column">
                     <div class="ui form">
-                        <div class="four fields">
+                        <div class="four inline fields">
                             <div class="field">
-                                <input type="tel" placeholder="Number" v-model="newRound_1" size="5" maxlength="5">
+                                <input type="radio" name="win" checked="" tabindex="0" class="hidden">
+                                <input type="tel" placeholder="Number" disabled="" v-model="newRound_1" size="5" maxlength="5" class="numberbox">
                             </div>
                             <div class="field">
-                                <input type="tel" placeholder="Number" v-model="newRound_2" size="5" maxlength="5">
+                                <input type="radio" name="win" tabindex="1" class="hidden">
+                                <input type="tel" placeholder="Number" v-model="newRound_2" size="5" maxlength="5" class="numberbox">
                             </div>
                             <div class="field">
-                                <input type="tel" placeholder="Number" v-model="newRound_3" size="5" maxlength="5">
+                                <input type="radio" name="win" tabindex="2" class="hidden">
+                                <input type="tel" placeholder="Number" v-model="newRound_3" size="5" maxlength="5" class="numberbox">
                             </div>
                             <div class="field">
-                                <input type="tel" placeholder="Number" v-model="newRound_4" size="5" maxlength="5">
+                                <input type="radio" name="win" tabindex="3" class="hidden">
+                                <input type="tel" placeholder="Number" v-model="newRound_4" size="5" maxlength="5" class="numberbox">
                             </div>
                         </div>
                     </div>
@@ -64,7 +71,7 @@
                     </button>
                 </div>
             </div>
-            <div class="ui sixteen column grid" v-if="rounds.length > 0" v-for="(round, index) in rounds">
+            <div id="roundsInfo" class="ui sixteen column grid" v-if="rounds.length > 0" v-for="(round, index) in rounds">
                 <div class="middle aligned center aligned two wide column">{{ index+1 }}</div>
                 <div class="middle aligned center aligned three wide column">
                     {{round[0]}}

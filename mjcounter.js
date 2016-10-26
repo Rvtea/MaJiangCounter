@@ -31,13 +31,19 @@ $().ready(function() {
                     else
                         return parseInt(x.trim());
                 });
+                let minus_index = checkedIndex();
+                let sumZero = finalData.reduce((a, b) => a + b, 0);
+                finalData[minus_index] = -1 * sumZero;
                 return finalData;
-                // return [
-                //     this.newRound_1,
-                //     this.newRound_2,
-                //     this.newRound_3,
-                //     this.newRound_4
-                // ]; // if use <input type="number">
+            },
+            winRoundInfo: function() {
+                var initial = [0, 0, 0, 0];
+                this.rounds.map((x) => {
+                    x.map((y, idx) => {
+                        if (y < 0) initial[idx]++;
+                    });
+                });
+                return initial;
             },
             sumData: function() {
                 var sumData = [0, 0, 0, 0];
@@ -82,6 +88,20 @@ $().ready(function() {
             }
         }
     });
+    $('input:radio').change(
+        function() {
+            let minus_index = checkedIndex();
+            var box = $('input.numberbox');
+            for (let i = 0; i < box.length; i++) {
+                if (i == minus_index) {
+                    $(box[i]).attr("disabled", true);
+                } else {
+                    $(box[i]).attr("disabled", false);
+                }
+            }
+
+        }
+    );
 });
 
 function arraysEqual(a, b) {
@@ -92,4 +112,13 @@ function arraysEqual(a, b) {
         if (a[i] !== b[i]) return false;
     }
     return true;
+}
+
+function checkedIndex() {
+    var radios = $('input.hidden');
+    for (var i = 0; i < radios.length; i++) {
+        if ($(radios[i]).prop('checked')) {
+            return i;
+        }
+    }
 }

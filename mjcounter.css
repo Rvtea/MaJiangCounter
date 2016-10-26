@@ -12,19 +12,14 @@ h2 {
     padding: 10px 0px;
 }
 
-table {
-    width: 100%;
-    margin: 10px auto;
-    border-collapse: collapse;
-}
-
 #header {
+    margin-top: 30px;
     text-align: center
 }
 
-td {
-    /*border: 2px dashed #1F1F1F;*/
-    padding: 5px 3px 5px 3px;
+.ui.floating.label {
+    top: -0.5em;
+    margin: 0 0 0 -3.5em !important;
 }
 
 #container {
