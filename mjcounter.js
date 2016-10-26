@@ -7,23 +7,34 @@ $().ready(function() {
             newRound_3: '',
             newRound_4: '',
             rounds: [
-                [10, -10, 0, 0],
-                [20, 20, 20, -60],
-                [-9, 0, 9, 0],
-                [-15, 0, 0, 15],
-                [22, 22, -66, 22],
-                [17, -17, 0, 0],
-                [10, -30, 10, 10]
+                // [10, -10, 0, 0],
+                // [20, 20, 20, -60],
+                // [-9, 0, 9, 0],
+                // [-15, 0, 0, 15],
+                // [22, 22, -66, 22],
+                // [17, -17, 0, 0],
+                // [10, -30, 10, 10]
+                // just test data
             ]
         },
         computed: {
             newRound: function() {
-                return [
+                let initData = [
                     this.newRound_1,
                     this.newRound_2,
                     this.newRound_3,
                     this.newRound_4
                 ];
+                var finalData = initData.map((x) => {
+                    return parseInt(x.trim());
+                });
+                return finalData;
+                // return [
+                //     this.newRound_1,
+                //     this.newRound_2,
+                //     this.newRound_3,
+                //     this.newRound_4
+                // ]; // if use <input type="number">
             },
             sumData: function() {
                 var sumData = [0, 0, 0, 0];
