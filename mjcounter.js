@@ -85,7 +85,7 @@ $().ready(function() {
                 let currentPlayer = '#' + event.target.parentElement.parentElement.id;
                 let currentId = parseInt(currentPlayer.substring(11)) - 1;
                 if (wholePlayer[currentId] != '') {
-                    $(currentPlayer).text(wholePlayer[currentId]);
+                    $(currentPlayer).text(wholePlayer[currentId]); // avoid using html()
                     $(currentPlayer).css("font-size", "24px");
                     $(currentPlayer).css("font-weight", "bold")
                 } else {
