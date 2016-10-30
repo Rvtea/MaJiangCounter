@@ -22,19 +22,31 @@
             <div id="header" class="ui sixteen column grid">
                 <div class="two wide column">Index</div>
                 <div class="three wide column">
-                    <label>Kan</label>
+                    <label id="newPlayer_1">
+                        <input type="text" placeholder="10 chars" v-model="newPlayer_1" size="10" maxlength="10">
+                        <button v-on:click="inputPlayer($event)">OK</button>
+                    </label>
                     <div class="floating ui red label">{{winRoundInfo[0]}}</div>
                 </div>
                 <div class="three wide column">
-                    <label>Jun</label>
+                    <label id="newPlayer_2">
+                        <input type="text" placeholder="10 chars" v-model="newPlayer_2" size="10" maxlength="10">
+                        <button v-on:click="inputPlayer()">OK</button>
+                    </label>
                     <div class="floating ui teal label">{{winRoundInfo[1]}}</div>
                 </div>
                 <div class="three wide column">
-                    <label>Hao</label>
+                    <label id="newPlayer_3">
+                        <input type="text" placeholder="10 chars" v-model="newPlayer_3" size="10" maxlength="10">
+                        <button v-on:click="inputPlayer()">OK</button>
+                    </label>
                     <div class="floating ui blue label">{{winRoundInfo[2]}}</div>
                 </div>
                 <div class="three wide column">
-                    <label>Kang</label>
+                    <label id="newPlayer_4">
+                        <input type="text" placeholder="10 chars" v-model="newPlayer_4" size="10" maxlength="10">
+                        <button v-on:click="inputPlayer()">OK</button>
+                    </label>
                     <div class="floating ui green label">{{winRoundInfo[3]}}</div>
                 </div>
                 <div class="two wide column">Action</div>

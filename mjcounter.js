@@ -2,6 +2,10 @@ $().ready(function() {
     var dataVM = new Vue({
         el: '#data',
         data: {
+            newPlayer_1: '',
+            newPlayer_2: '',
+            newPlayer_3: '',
+            newPlayer_4: '',
             newRound_1: '',
             newRound_2: '',
             newRound_3: '',
@@ -76,6 +80,16 @@ $().ready(function() {
             }
         },
         methods: {
+            inputPlayer: function($event) {
+                let wholePlayer = [this.newPlayer_1, this.newPlayer_2, this.newPlayer_3, this.newPlayer_4];
+                let currentPlayer = event.target.parentElement.id;
+                let currentId = parseInt(currentPlayer.substring(10)) - 1;
+                if (wholePlayer[currentId] != '') {
+                    $('#' + currentPlayer).text(wholePlayer[currentId]);
+                } else {
+                    alert("The player name is not allowed empty.");
+                }
+            },
             addNewRound: function() {
                 this.rounds.push(this.newRound);
                 this.newRound_1 = '';
@@ -84,7 +98,9 @@ $().ready(function() {
                 this.newRound_4 = '';
             },
             removeRound: function(index) {
-                this.rounds.splice(index, 1);
+                if (confirm("Are you sure to delete this row?")) {
+                    this.rounds.splice(index, 1);
+                }
             }
         }
     });
