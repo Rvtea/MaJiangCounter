@@ -1,5 +1,5 @@
 body {
-    font-size: 18px;
+    font-size: 20px;
     /*max-width: 600px;*/
     margin: 30px 15px 50px 15px;
     background-color: #F5F5F5 !important;
@@ -27,8 +27,7 @@ h2 {
     height: auto !important;
     height: 100%;
     margin: 0px 0px 50px 0px;
-    padding: 10px 10px 10px 10px;
-    text-align: right;
+    padding: 10px 10px 100px 10px;
     /*box-shadow: 10px 20px 60px 0px #e3d6c7;
     -webkit-box-shadow: 10px 20px 60px 0px #e3d6c7;*/
 }
@@ -54,4 +53,15 @@ h2 {
 .info-left,
 .info-right {
     font-size: 22px;
+}
+
+.footer {
+    position: fixed;
+    margin-left: -15px;
+    bottom: 0;
+    width: 100%;
+    background-color: #EEE;
+    box-sizing: border-box;
+    height: 65px;
+    padding: 20px 15px;
 }

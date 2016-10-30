@@ -17,35 +17,39 @@
         <h2 class="ui center aligned icon header">
             <i class="circular users icon"></i>
             Ma Jiang Game Management Tool
-            </h2>
+        </h2>
+        <h3 class="ui warning message">
+            <i class="warning circle icon"></i>
+            适度游戏益脑，沉迷游戏伤身，合理安排时间，享受健康生活
+        </h3>
         <div id="data">
             <div id="header" class="ui sixteen column grid">
                 <div class="two wide column">Index</div>
                 <div class="three wide column">
-                    <label id="newPlayer_1">
+                    <label class="ui mini action input" id="newPlayer_1">
                         <input type="text" placeholder="10 chars" v-model="newPlayer_1" size="10" maxlength="10">
-                        <button v-on:click="inputPlayer($event)">OK</button>
+                        <button class="mini ui compact basic button" v-on:click="inputPlayer($event)"><i class="checkmark icon"></i></button>
                     </label>
                     <div class="floating ui red label">{{winRoundInfo[0]}}</div>
                 </div>
                 <div class="three wide column">
-                    <label id="newPlayer_2">
+                    <label class="ui mini action input" id="newPlayer_2">
                         <input type="text" placeholder="10 chars" v-model="newPlayer_2" size="10" maxlength="10">
-                        <button v-on:click="inputPlayer()">OK</button>
+                        <button class="mini ui compact basic button" v-on:click="inputPlayer($event)"><i class="checkmark icon"></i></button>
                     </label>
                     <div class="floating ui teal label">{{winRoundInfo[1]}}</div>
                 </div>
                 <div class="three wide column">
-                    <label id="newPlayer_3">
+                    <label class="ui mini action input" id="newPlayer_3">
                         <input type="text" placeholder="10 chars" v-model="newPlayer_3" size="10" maxlength="10">
-                        <button v-on:click="inputPlayer()">OK</button>
+                        <button class="mini ui compact basic button" v-on:click="inputPlayer($event)"><i class="checkmark icon"></i></button>
                     </label>
                     <div class="floating ui blue label">{{winRoundInfo[2]}}</div>
                 </div>
                 <div class="three wide column">
-                    <label id="newPlayer_4">
+                    <label class="ui mini action input" id="newPlayer_4">
                         <input type="text" placeholder="10 chars" v-model="newPlayer_4" size="10" maxlength="10">
-                        <button v-on:click="inputPlayer()">OK</button>
+                        <button class="mini ui compact basic button" v-on:click="inputPlayer($event)"><i class="checkmark icon"></i></button>
                     </label>
                     <div class="floating ui green label">{{winRoundInfo[3]}}</div>
                 </div>
@@ -103,6 +107,7 @@
                     </button>
                 </div>
             </div>
+            <h3 class="ui horizontal divider header"><i class="bar chart icon"></i> Stats</h3>
             <div class="ui sixteen column grid" id="allMerge">
                 <div class="middle aligned center aligned two wide column"><strong>Sum</strong></div>
                 <div class="middle aligned center aligned three wide column">
@@ -140,7 +145,7 @@
         </div>
     </div>
     <div class="footer">
-        <p class="text-center">Copyright © 2016 | Designed by <a href="https://github.com/Rvtea/MaJiangCounter" target=_new>Yuan Xiao</a>
+        <p class="text-center">Copyright © 2016 | Designed by <i class="github icon"></i> <a href="https://github.com/Rvtea/MaJiangCounter" target=_new>Yuan Xiao</a>
         </p>
     </div>
 </body>

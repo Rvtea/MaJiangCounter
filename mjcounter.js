@@ -82,10 +82,12 @@ $().ready(function() {
         methods: {
             inputPlayer: function($event) {
                 let wholePlayer = [this.newPlayer_1, this.newPlayer_2, this.newPlayer_3, this.newPlayer_4];
-                let currentPlayer = event.target.parentElement.id;
-                let currentId = parseInt(currentPlayer.substring(10)) - 1;
+                let currentPlayer = '#' + event.target.parentElement.parentElement.id;
+                let currentId = parseInt(currentPlayer.substring(11)) - 1;
                 if (wholePlayer[currentId] != '') {
-                    $('#' + currentPlayer).text(wholePlayer[currentId]);
+                    $(currentPlayer).text(wholePlayer[currentId]);
+                    $(currentPlayer).css("font-size", "24px");
+                    $(currentPlayer).css("font-weight", "bold")
                 } else {
                     alert("The player name is not allowed empty.");
                 }
