@@ -1,3 +1,5 @@
+var wholePlayer;
+
 $().ready(function() {
     var dataVM = new Vue({
         el: '#data',
@@ -81,7 +83,7 @@ $().ready(function() {
         },
         methods: {
             inputPlayer: function($event) {
-                let wholePlayer = [this.newPlayer_1, this.newPlayer_2, this.newPlayer_3, this.newPlayer_4];
+                wholePlayer = [this.newPlayer_1, this.newPlayer_2, this.newPlayer_3, this.newPlayer_4];
                 let currentPlayer = '#' + event.target.parentElement.parentElement.id;
                 let currentId = parseInt(currentPlayer.substring(11)) - 1;
                 if (wholePlayer[currentId] != '') {
@@ -91,6 +93,12 @@ $().ready(function() {
                 } else {
                     alert("The player name is not allowed empty.");
                 }
+                this.$nextTick(function() {
+                    option1.series[0].data[currentId].name = wholePlayer[currentId];
+                    option2.series[0].data[currentId].name = wholePlayer[currentId];
+                    myChart1.setOption(option1);
+                    myChart2.setOption(option2);
+                });
             },
             addNewRound: function() {
                 this.rounds.push(this.newRound);
@@ -98,14 +106,80 @@ $().ready(function() {
                 this.newRound_2 = '';
                 this.newRound_3 = '';
                 this.newRound_4 = '';
+                this.$nextTick(function() {
+                    statsValue_0 = option1.series[0].data;
+                    statsValue_0.map((x, index) => {
+                        statsValue_0[index].value = dataVM.winRoundInfo[index];
+                    });
+                    statsValue_1 = option2.series[0].data;
+                    statsValue_1.map((x, index) => {
+                        statsValue_1[index].value = dataVM.sumPercentage[index];
+                    });
+                    myChart1.setOption(option1);
+                    myChart2.setOption(option2);
+                })
             },
             removeRound: function(index) {
                 if (confirm("Are you sure to delete this row?")) {
                     this.rounds.splice(index, 1);
+                    this.$nextTick(function() {
+                        statsValue_0 = option1.series[0].data;
+                        statsValue_0.map((x, index) => {
+                            statsValue_0[index].value = dataVM.winRoundInfo[index];
+                        });
+                        statsValue_1 = option2.series[0].data;
+                        statsValue_1.map((x, index) => {
+                            statsValue_1[index].value = dataVM.sumPercentage[index];
+                        });
+                        myChart1.setOption(option1);
+                        myChart2.setOption(option2);
+                    })
                 }
             }
         }
     });
+    // echarts display
+    var myChart1 = echarts.init(document.getElementById('pie1')),
+        myChart2 = echarts.init(document.getElementById('pie2'));
+    var option1 = {
+            title: {
+                text: 'Win Rounds',
+                left: 'left'
+            },
+            series: [{
+                name: 'Win Rounds',
+                type: 'pie',
+                center: ['50%', '50%'],
+                radius: '75%',
+                data: [
+                    { value: dataVM.winRoundInfo[0], name: "player_1" },
+                    { value: dataVM.winRoundInfo[1], name: "player_2" },
+                    { value: dataVM.winRoundInfo[2], name: "player_3" },
+                    { value: dataVM.winRoundInfo[3], name: "player_4" }
+                ]
+            }]
+        },
+        option2 = {
+            title: {
+                text: 'Percentage',
+                left: 'right'
+            },
+            series: [{
+                name: 'Percentage',
+                type: 'pie',
+                center: ['50%', '50%'],
+                radius: '75%',
+                data: [
+                    { value: dataVM.sumPercentage[0], name: "player_1" },
+                    { value: dataVM.sumPercentage[1], name: "player_2" },
+                    { value: dataVM.sumPercentage[2], name: "player_3" },
+                    { value: dataVM.sumPercentage[3], name: "player_4" }
+                ]
+            }]
+        };
+    myChart1.setOption(option1);
+    myChart2.setOption(option2);
+
     $('input:radio').change(
         function() {
             let minus_index = checkedIndex();

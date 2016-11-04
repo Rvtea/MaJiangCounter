@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
     <script type='text/javascript' language='javascript' src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script type='text/javascript' language='javascript' src="https://cdn.bootcss.com/echarts/3.3.0/echarts.common.min.js"></script>
     <script type='text/javascript' language='javascript' src="mjcounter.js"></script>
     <link rel="stylesheet" href="mjcounter.css">
 </head>
@@ -108,6 +109,10 @@
                 </div>
             </div>
             <h3 class="ui horizontal divider header"><i class="bar chart icon"></i> Stats</h3>
+            <div class="ui sixteen column grid">
+                <div class="eight wide column" id="pie1" style="height: 300px;"></div>
+                <div class="eight wide column" id="pie2" style="height: 300px;"></div>
+            </div>
             <div class="ui sixteen column grid" id="allMerge">
                 <div class="middle aligned center aligned two wide column"><strong>Sum</strong></div>
                 <div class="middle aligned center aligned three wide column">
