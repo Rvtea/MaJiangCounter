@@ -4,7 +4,7 @@
 This tool is based on [Vue.js](http://vuejs.org/) and [Semantic UI](http://semantic-ui.com/) that can count rate and stat for Ma Jiang game. It works better on mobiles!
 Here it goes like:
 
-<img src="https://raw.githubusercontent.com/Rvtea/MaJiangCounter/master/img/example_img_v2.png" width = "400" alt="example" align="center" />
+<img src="https://raw.githubusercontent.com/Rvtea/MaJiangCounter/master/img/example_img_v3.png" width = "400" alt="example" align="center" />
 
 ### How to use
 
